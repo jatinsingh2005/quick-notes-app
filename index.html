@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quick Notes</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f4f4;
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      width: 200px;
+      margin: 10px;
+    }
+
+    button {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    li {
+      background: white;
+      margin: 10px auto;
+      padding: 10px;
+      width: 250px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    h2 {
+  margin-top: 50px;
+}
+
+input {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: black;
+  color: white;
+  border: none;
+}
+
+li:hover {
+  background: #ddd;
+}
+  </style>
+
+</head>
+
+<body>
+
+<h2>Quick Notes</h2>
+
+<input type="text" id="note" placeholder="Write note">
+<button onclick="addNote()">Add</button>
+
+<ul id="list"></ul>
+
+<script>
+
+function addNote() {
+  let note = document.getElementById("note").value;
+
+  if(note === "") return;
+
+  let li = document.createElement("li");
+  li.textContent = note;
+
+  // click = delete
+  li.onclick = function() {
+    this.remove();
+  };
+
+  document.getElementById("list").appendChild(li);
+
+  document.getElementById("note").value = "";
+}
+
+</script>
+
+</body>
+</html>
